@@ -21,6 +21,7 @@ set -o nounset
 function F_PRI_IP
 {
      /sbin/ifconfig -a|grep -w inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:" | grep -E "^10\.|192\.168\.|172\.1[6-9]\.|172\.2[0-9]\.|172\.3[01]\."
+}
 
 # 获取本机的公网IP
 function F_PUB_IP

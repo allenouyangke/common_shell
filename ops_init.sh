@@ -11,17 +11,14 @@
 
 set -o nounset
 
-OPS_DIR="/ops"
-COM_DIR="${OPS_DIR}/common"
-if [ d != "${COM_DIR}" ];then
-    mkdir -p ${COM_DIR}
-fi
-
-cd ${COM_DIR};git clone https://github.com/allenouyangke/common_shell.git
-
 # 加载公共变量和函数
-source ${COM_DIR}/global_vars.sh
-source ${COM_DIR}/global_funcs.sh
+source ${PWD}/global_vars.sh
+source ${PWD}/global_funcs.sh
+
+if [ -d "/ops" ];then
+    F_RED "Please backup /ops dir."
+    exit 65
+fi
 
 # 将目录结构写入到OPS_DIR_LIST数组里
 OPS_DIR_LIST=(
@@ -30,6 +27,7 @@ OPS_TMP
 LOG_DIR
 TPL_DIR
 BIN_DIR
+COM_DIR
 LOG_ERR
 LOG_COR
 TMP_IPLIST
@@ -38,4 +36,10 @@ TMP_IPLIST
 for DIR in ${OPS_DIR_LIST[@]}
 do
     eval mkdir \$${DIR}
+    DIR_PATH=`eval echo \$${DIR}`
+    if [ $? == 0 ];then
+        F_PRINT_SUCCESS "目录${DIR_PATH}创建成功"
+    else
+        F_PRINT_ERROR "目录${DIR_PATH}创建失败"
+    fi
 done
