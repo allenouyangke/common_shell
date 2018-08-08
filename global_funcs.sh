@@ -28,6 +28,12 @@ function F_PUB_IP
 {
      /sbin/ifconfig -a|grep -w inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:" | grep -Ev "^10\.|192\.168\.|172\.1[6-9]\.|172\.2[0-9]\.|172\.3[01]\."
 }
+
+# 获取SN码，需要先检测dmidecode命令是否安装
+function F_SN
+{
+    dmidecode -t 1 | grep 'Serial Number' | awk -F':' '{print $NF}' | xargs
+}
 # =============================== 时间输出函数 =====================================
 # 定义当天详细时间输出，显示：2018-07-23 11:12:24
 function F_SDATE
