@@ -123,6 +123,14 @@ function F_STATUS
         F_PRINT_ERROR ${2}
     fi
 }
+function F_STATUS_MINI
+{
+    if [ $? == 0 ];then
+        F_PRINT_SUCCESS ${1}
+    else
+        F_PRINT_ERROR ${1}
+    fi
+}
 
 # =============================== 颜色输出函数 =====================================
 # 输出红色字体

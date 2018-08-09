@@ -36,7 +36,4 @@ EOF
 
     which pyenv
     F_STATUS "安装pyenv成功" "安装pyenv失败"
-
-
-    
 }
