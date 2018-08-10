@@ -22,3 +22,5 @@ export COM_DIR="${OPS_DIR}/com"                                    # 定义通�
 export LOG_ERR="${LOG_DIR}/err.log"                                # 定义错误日志文件
 export LOG_COR="${LOG_DIR}/cor.log"                                # 定义正确日志文件
 export TMP_IPLIST="${OPS_TMP}/ip_list"                             # 定义服务器IP存放目录
+export PACKAGES_PATH="/usr/local/src"                              # 定义软件包下载存放路径
+export INSTALL_PATH="/usr/local"                                   # 定义软件安装路径

@@ -32,6 +32,8 @@ function F_PUB_IP
 # 获取SN码，需要先检测dmidecode命令是否安装
 function F_SN
 {
+    which dmidecode
+    if [ $? != 0 ];then yum install dmidecode -y;fi
     dmidecode -t 1 | grep 'Serial Number' | awk -F':' '{print $NF}' | xargs
 }
 # =============================== 时间输出函数 =====================================
@@ -63,9 +65,8 @@ function F_TODATE2
 function F_COUNTDOWN
 {
     SECONDS_LEFT=${1}
-    echo -e "[ \033[32m 倒计时器 \033[0m ] \033[32m 请等待${SECONDS_LEFT}秒 ... ... \033[0m"
     while [ "${SECONDS_LEFT}" -gt 0 ];do
-      echo -ne "\033[31m ${SECONDS_LEFT} \033[0m"
+      echo -ne "[ \033[32m 倒计时器 \033[0m ] \033[32m 请等待${SECONDS_LEFT}秒 \033[0m"
       sleep 1
       SECONDS_LEFT=$((${SECONDS_LEFT} - 1))
       echo -ne "\r     \r" #清除本行文字
@@ -154,6 +155,18 @@ function F_STATUS_EXIT
         F_PRINT_ERROR ${1}
         exit 1
     fi
+}
+
+# 判断文件是否存在，
+function F_FILE
+{
+    if [ -e "${1}" ];then F_PRINT_SUCCESS File : ${1} is exist!; else F_PRINT_ERROR File : ${1} is not exist!;fi
+}
+
+# 判断目录是否存在
+function F_DIR
+{
+    if [ -d "${1}" ];then F_PRINT_SUCCESS Dir : ${1} is exist!; else F_PRINT_ERROR Dir : ${1} is not exist!;fi
 }
 
 # =============================== 颜色输出函数 =====================================

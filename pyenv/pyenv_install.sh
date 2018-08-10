@@ -1,17 +1,16 @@
 #!/bin/bash
 # -------------------------------------------------------------------------------
-# Script_name	: 	pyenv_install.sh
-# Revision		: 	1.0
-# Date			: 	2018/07/31
-# Author		: 	AllenKe
-# Email		    :	allenouyangke@icloud.com
-# Description	:	基于CentOS6的pyenv安装和配置。
-# Usage		    :	sh pyenv_install.sh
+# Script_name  : pyenv_install.sh
+# Revision     : 1.0
+# Date         : 2018/07/31
+# Author       : AllenKe
+# Email        : allenouyangke@icloud.com
+# Description  : 基于CentOS6的pyenv安装和配置。
 # -------------------------------------------------------------------------------
 
 source $PWD/../global_funcs.sh && source $PWD/../global_vars.sh
 
-function AutoInsatll
+function PyenvInsatllOnline
 {
     F_PRINT_SUCCESS "开始在线安装pyenv"
     curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
@@ -19,7 +18,7 @@ function AutoInsatll
     F_STATUS "安装pyenv成功" "安装pyenv失败"
 }
 
-function Install
+function PyenvInstallGit
 {
     F_PRINT_SUCCESS "开始git安装pyenv"
     # 手动安装
