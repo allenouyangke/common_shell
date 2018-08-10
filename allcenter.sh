@@ -8,7 +8,7 @@
 # Description  : 用于控制部署相关软件和服务。
 # -------------------------------------------------------------------------------
 
-source $PWD/global_funcs.sh && source $PWD/global_vars.sh
+source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
 
 function SerList
 {
@@ -43,7 +43,3 @@ esac
 read -p "输入任意键清空"
 done
 }
-
-
-
-

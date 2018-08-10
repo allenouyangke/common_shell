@@ -8,7 +8,7 @@
 # Description  : nginx简单部署，一键式部署脚本。
 # -------------------------------------------------------------------------------
 
-source $PWD/../global_funcs.sh && source $PWD/../global_vars.sh
+source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
 
 DOWNLOADPATH="/usr/local/src/"
 INSTALLPATH="/usr/local/nginx"

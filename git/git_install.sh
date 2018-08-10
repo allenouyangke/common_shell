@@ -8,12 +8,12 @@
 # Description  : 安装新版git命令/升级git到新版本
 # -------------------------------------------------------------------------------
 
-source $PWD/../global_funcs.sh && source $PWD/../global_vars.sh
+source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
 
 function GitInstall
 {
     which git
     if [ $? == 0 ];then yum remove git -y;fi
     F_PRINT_SUCCESS "清理旧版Git"
-    
+
 }

@@ -8,4 +8,4 @@
 # Description  :
 # -------------------------------------------------------------------------------
 
-source $PWD/../global_funcs.sh && source $PWD/../global_vars.sh
+source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
