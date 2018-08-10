@@ -25,14 +25,21 @@ function PyenvInstallGit
     git clone git://github.com/yyuu/pyenv.git ~/.pyenv
 
     # 配置环境变量
-    cat >> ~/.bashrc << EOF
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-EOF
-    source ~/.bashrc
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+    # source ~/.bashrc
     F_STATUS "配置环境变量成功" "配置环境变量失败"
 
-    which pyenv
+    which pyenv > /dev/null 2>&1
     F_STATUS "安装pyenv成功" "安装pyenv失败"
+}
+
+function PyenvClean
+{
+    rm -rf ~/.pyenv/
+    F_STATUS_MINI "清理Pyenv数据"
+    sed -i "/PYENV/d;/pyenv/d" ~/.bashrc
+    F_STATUS_MINI "清理Pyenv环境变量配置"
+
 }
