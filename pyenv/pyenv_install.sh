@@ -14,7 +14,7 @@ function PyenvInsatllOnline
 {
     F_PRINT_SUCCESS "开始在线安装pyenv"
     curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-    which pyenv
+    which pyenv > /dev/null 2>&1
     F_STATUS "安装pyenv成功" "安装pyenv失败"
 }
 

@@ -31,5 +31,10 @@ function TomcatTest
 
 function TomcatScript
 {
+    
+}
 
+function TomcatClean
+{
+    
 }
