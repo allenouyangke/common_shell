@@ -20,7 +20,7 @@ function NginxVersions
     for line in ${NGINXVERSIONS[@]}; do F_GREEN ${line}; done
 }
 
-function InstallNginx
+function NginxInstall
 {
     NginxVersions
     read -p "请选择需要安装的Nginx版本" NGINXVER
@@ -40,7 +40,7 @@ function InstallNginx
     F_STATUS_MINI "安装"
 }
 
-function TestNginx
+function NginxTest
 {
     F_PRINT_SUCCESS "测试配置文件"
     /user/local/nginx/sbin/nginx -t
@@ -64,12 +64,12 @@ function TestNginx
 
 function Usage
 {
-    F_RED "Usage : Please select the operation versions|install|test"
+    F_RED "Usage : Please select the operation (versions|install|test)"
 }
 
 case $1 in
     versions) NginxVersions ;;
-    install) InstallNginx ;;
-    test) TestNginx;;
+    install) NginxInstall ;;
+    test) NginxTest;;
     *) Usage ;;
 esac

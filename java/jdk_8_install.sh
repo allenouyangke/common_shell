@@ -8,3 +8,44 @@
 # Description  : 一键安装JDK8
 # -------------------------------------------------------------------------------
 
+source $PWD/../global_funcs.sh && source $PWD/../global_vars.sh
+
+function JDK8SPath
+{
+    cat >> /etc/profile << EOF
+    JAVA_HOME=/usr/local/jdk1.8.0_161
+    JRE_HOME=/usr/local/jdk1.8.0_161/jre
+    PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+    CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+    export JAVA_HOME JRE_HOME PATH CLASSPATH
+EOF
+    F_STATUS_MINI "导入JAVA_HOME、JRE_HOME、PATH、CLASSPATH环境变量"
+    source /etc/profile
+    F_STATUS_MINI "重新加载/etc/profile"
+}
+
+function JDK8Install
+{
+    wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.tar.gz" -P /usr/local/src/
+    F_STATUS_MINI "下载JSK8源码包"
+    cd /usr/local/src/;tar zxvf jdk-8u141-linux-x64.tar.gz -C /usr/local/
+    F_STATUS_MINI "解压JSK8源码包"
+    JDK8SPath
+}
+
+function JSK8Test
+{
+    java -version
+    F_STATUS "JAVA测试成功" "JAVA测试失败，请检查相关配置和变量"
+}
+
+function Usage
+{
+    F_RED "Usage : Please select the operation (install|test)"
+}
+
+case $1 in
+    install) JDK8Install ;;
+    test) JDK8Test;;
+    *) Usage ;;
+esac

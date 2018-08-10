@@ -59,6 +59,19 @@ function F_TODATE2
     date +"%Y-%m-%d"
 }
 
+# 倒计时器，
+function F_COUNTDOWN
+{
+    SECONDS_LEFT=${1}
+    echo -e "[ \033[32m 倒计时器 \033[0m ] \033[32m 请等待${SECONDS_LEFT}秒 ... ... \033[0m"
+    while [ "${SECONDS_LEFT}" -gt 0 ];do
+      echo -ne "\033[31m ${SECONDS_LEFT} \033[0m"
+      sleep 1
+      SECONDS_LEFT=$((${SECONDS_LEFT} - 1))
+      echo -ne "\r     \r" #清除本行文字
+    done
+}
+
 # =============================== 判断输出函数 =====================================
 # 输出正确执行信息，显示：[ True ] 20180723111224 需要输出的信息
 function F_PRINT_SUCCESS
@@ -123,12 +136,23 @@ function F_STATUS
         F_PRINT_ERROR ${2}
     fi
 }
+# 判断命令/脚本是否执行成功，格式：F_STATUS "中性提示信息"
 function F_STATUS_MINI
 {
     if [ $? == 0 ];then
         F_PRINT_SUCCESS ${1}
     else
         F_PRINT_ERROR ${1}
+    fi
+}
+# # 判断命令/脚本是否执行成功，如发生错误，则会退出执行，格式：F_STATUS "中性提示信息"
+function F_STATUS_EXIT
+{
+    if [ $? == 0 ];then
+        F_PRINT_SUCCESS ${1}
+    else
+        F_PRINT_ERROR ${1}
+        exit 1
     fi
 }
 
@@ -146,7 +170,7 @@ function F_BLACK
 }
 
 # 输出绿色字体
-function F_GREEN
+function F_GREENGREEN
 {
     echo -e "\033[32m ${1} \033[0m"
 }
