@@ -269,3 +269,10 @@ function F_SCP_PUSH
     DEST_PATH=${4}
     scp -r -P${SSH_PORT} root@${REMOTE_IP}:${DEST_PATH} ${SRC_PATH}
 }
+
+# =============================== 远程操作函数 =====================================
+# ssh远程连接
+function sshP
+{
+    
+}

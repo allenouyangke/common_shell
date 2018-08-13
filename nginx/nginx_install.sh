@@ -64,7 +64,7 @@ function NginxTest
 
 function Usage
 {
-    F_RED "Usage : Please select the operation (versions|install|test)"
+    F_PRINT_WARN "Usage : Please select the operation (versions|install|test)"
 }
 
 case $1 in

@@ -24,3 +24,6 @@ export LOG_COR="${LOG_DIR}/cor.log"                                # 定义正�
 export TMP_IPLIST="${OPS_TMP}/ip_list"                             # 定义服务器IP存放目录
 export PACKAGES_PATH="/usr/local/src"                              # 定义软件包下载存放路径
 export INSTALL_PATH="/usr/local"                                   # 定义软件安装路径
+
+
+export SSHPORT=22                                                  # 定义SSH默认端口
