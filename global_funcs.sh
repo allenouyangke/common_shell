@@ -160,13 +160,13 @@ function F_STATUS_EXIT
 # 判断文件是否存在，
 function F_FILE
 {
-    if [ -e "${1}" ];then F_PRINT_SUCCESS File : ${1} is exist!; else F_PRINT_ERROR File : ${1} is not exist!;fi
+    if [ -e "${1}" ];then F_PRINT_WARN "File : ${1} is exist!"; else F_PRINT_WARN "File : ${1} is not exist!";touch ${1};F_STATUS_MINI "创建文件${1}";fi
 }
 
-# 判断目录是否存在
+# 判断目录是否存在，如果不存在则创建
 function F_DIR
 {
-    if [ -d "${1}" ];then F_PRINT_SUCCESS Dir : ${1} is exist!; else F_PRINT_ERROR Dir : ${1} is not exist!;fi
+    if [ -d "${1}" ];then F_PRINT_WARN "Dir : ${1} is exist!"; else F_PRINT_WARN "Dir : ${1} is not exist!";mkdir -p ${1};F_STATUS_MINI "创建目录${1}";fi
 }
 
 # =============================== 颜色输出函数 =====================================

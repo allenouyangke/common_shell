@@ -15,5 +15,5 @@ function GitInstall
     which git
     if [ $? == 0 ];then yum remove git -y;fi
     F_PRINT_SUCCESS "清理旧版Git"
-
+    
 }
