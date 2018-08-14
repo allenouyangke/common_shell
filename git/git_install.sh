@@ -50,7 +50,7 @@ function GitTest
 
 function GitUsage
 {
-    echo  "Usage: $0 install|install_doc|test"
+    F_PRINT_WARN "Usage: $0 install|install_doc|test"
 }
 
 case $1 in

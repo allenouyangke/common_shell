@@ -46,7 +46,7 @@ function MailxTest
 
 function MailxUsga
 {
-    echo  "Usage: $0 install|test"
+    F_PRINT_WARN "Usage: $0 install|test"
 }
 
 case $1 in

@@ -71,7 +71,7 @@ function GlobalUpdate
 
 function OPSCenterUsage
 {
-    F_PRINT_WARN "Usage : Please select the operation (init|update)"
+    F_PRINT_WARN "Usage: $0 install|install_doc|test"
 }
 
 case $1 in
