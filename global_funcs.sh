@@ -270,9 +270,30 @@ function F_SCP_PUSH
     scp -r -P${SSH_PORT} root@${REMOTE_IP}:${DEST_PATH} ${SRC_PATH}
 }
 
+# 关闭selinux
+function F_CLOSE_SELINUX
+{
+    sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
+    F_STATUS_MINI "selinux已关闭，重启系统后生效!"
+    read -p "是否马上重启系统（Yy/Nn）：" option
+    if [ ${option} == "Y" ] || [ ${option} == "y" ];then 
+        F_COUNTDOWN 6
+        shutdown -r now
+    else 
+        F_PRINT_SUCCESS "稍后请重启系统，以生效selinux配置"
+        exit 0
+    fi
+}
+
 # =============================== 远程操作函数 =====================================
 # ssh远程连接
-function sshP
+function F_SSH
 {
     
+}
+
+# 生成公秘钥文件
+function F_KEY
+{
+
 }

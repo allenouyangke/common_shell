@@ -77,7 +77,7 @@ function RsyncYumInstall
 # 源码安装Rsync
 function RsyncSourceInstall
 {
-    RSYNCURL=`curl -s "https://rsync.samba.org/" | sed 's/ /\n/g' | egrep "rsync-[0-9]\.[0-9]\.[0-9]\.tar.gz" | egrep -v asc | awk -F'"' '{print $2}'`
+    RSYNCURL=`curl -s "http://rsync.samba.org/" | sed 's/ /\n/g' | egrep "rsync-[0-9]\.[0-9]\.[0-9]\.tar.gz" | egrep -v asc | awk -F'"' '{print $2}'`
     RSYNCVERSION=`echo ${RSYNCURL} | | awk -F'/' '{print $NF}'`
     wget -P ${PACKAGES_PATH} ${RSYNCURL}
     F_STATUS_MINI "下载Rsync源码包"
