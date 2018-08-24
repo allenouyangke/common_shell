@@ -1,0 +1,2 @@
+- [M/Monit下载地址](https://mmonit.com/dist/)
+- [Monot下载地址](https://mmonit.com/monit/dist/binary/)

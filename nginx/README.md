@@ -1,1 +1,2 @@
 - [Nginx下载地址](http://nginx.org/en/download.html)
+- [Nginx启停脚本参考资料](https://www.nginx.com/resources/wiki/start/topics/examples/redhatnginxinit/)

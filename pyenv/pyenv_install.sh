@@ -20,6 +20,10 @@ function PyenvInsatllOnline
 
 function PyenvInstallGit
 {
+    yum install readline readline-devel readline-static -y
+    yum install openssl openssl-devel openssl-static -y
+    yum install sqlite-devel -y
+    yum install bzip2-devel bzip2-libs -y
     F_PRINT_SUCCESS "开始git安装pyenv"
     # 手动安装
     git clone git://github.com/yyuu/pyenv.git ~/.pyenv

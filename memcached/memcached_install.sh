@@ -19,7 +19,7 @@ function MemcachedInstall
     F_STATUS_MINI "下载${MCVERSION}"
     tar zxvf ${PACKAGES_PATH}/${MCVERSION}.tar.gz -C ${PACKAGES_PATH}
     F_STATUS_MINI "解压${MVVERSION}"
-    yum install gcc libevent libevent-devel
+    yum install gcc libevent libevent-devel -y
     F_STATUS_MINI "安装相关依赖包"
     cd ${PACKAGES_PATH}/${MCVERSION} && ./configure --prefix=${INSTALL_PATH}/memcached
     F_STATUS_MINI "配置memcached"
