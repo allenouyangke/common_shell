@@ -8,7 +8,7 @@
 # Description  : 简易安装mailx
 # -------------------------------------------------------------------------------
 
-source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
 function MailxConfig
 {

@@ -8,7 +8,7 @@
 # Description  : rsync安装部署配置
 # -------------------------------------------------------------------------------
 
-source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
 # 导入配置信息
 function RsyncConfigFile

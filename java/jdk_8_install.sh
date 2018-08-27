@@ -8,7 +8,7 @@
 # Description  : 一键安装JDK8
 # -------------------------------------------------------------------------------
 
-source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
 function JDK8SPath
 {

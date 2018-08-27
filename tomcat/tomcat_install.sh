@@ -8,7 +8,7 @@
 # Description  : 一键部署tomcat
 # -------------------------------------------------------------------------------
 
-source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
 TOMCATNAME="tomcat7"
 

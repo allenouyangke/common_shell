@@ -8,7 +8,7 @@
 # Description  : 基于CentOS6的pyenv安装和配置。
 # -------------------------------------------------------------------------------
 
-source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
 function PyenvInsatllOnline
 {

@@ -8,7 +8,7 @@
 # Description  : memcached安装部署脚本。
 # -------------------------------------------------------------------------------
 
-source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
  MCVERSION="memcached-1.5.10"
  MCINSTALLPATH="${INSTALL_PATH}/memcached"

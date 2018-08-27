@@ -8,7 +8,7 @@
 # Description  : mysql5.6部署脚本。
 # -------------------------------------------------------------------------------
 
-source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
 #!/bin/bash
 # 查看CPU核数
@@ -33,6 +33,7 @@ useradd -g mysql -s /sbin/nologin mysql
 mkdir -p /usr/local/mysql
 mkdir -p /export/mysql
 mkdir -p /export/mysql/logs
+mkdir -p /export/logs
 chown -R mysql.mysql /export/mysql
 chown -R mysql.mysql /export/logs
 

@@ -8,7 +8,7 @@
 # Description  : 安装新版git命令/升级git到新版本
 # -------------------------------------------------------------------------------
 
-source /ops/com/global_funcs.sh && source /ops/com/global_vars.sh
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 GITVERSION="v2.2.1.tar.gz"
 
 function GitInstall

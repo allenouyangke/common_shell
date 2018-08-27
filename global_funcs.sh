@@ -13,6 +13,8 @@
 # set -u
 set -o nounset
 
+# source ./global_vars.sh
+
 # =============================== 配置输出函数 =====================================
 # 获取IP地址的方式,
 # /sbin/ifconfig -a|grep -w inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"
@@ -289,11 +291,24 @@ function F_CLOSE_SELINUX
 # ssh远程连接
 function F_SSH
 {
-    
+    # 需要先建立服务器间的信任关系
+    # F_SSH ip_address command
+    ssh -o stricthostkeychecking=no -o GSSAPIAuthentication=no -p ${SSHPORT} ${1} "${2}"
 }
 
 # 生成公秘钥文件
 function F_KEY
 {
 
+}
+
+# =============================== 数据库操作函数 =====================================
+function F_MYSQL_LOCAL
+{
+    ${MYSQLCOMMAND} -u${MYSQLUSER} -p${MYSQLPASS} -P${MYSQLPORT} -h${MYSQLHOST:-"127.0.0.1"} -e"${1}"
+}
+
+function F_MYSQL_REMOTE
+{
+    ${MYSQLCOMMAND} -u${MYSQLUSER} -p${MYSQLPASS} -P${MYSQLPORT} -h${MYSQLHOST:-127.0.0.1} -e"${1}"
 }
