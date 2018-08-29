@@ -296,19 +296,15 @@ function F_SSH
     ssh -o stricthostkeychecking=no -o GSSAPIAuthentication=no -p ${SSHPORT} ${1} "${2}"
 }
 
-# 生成公秘钥文件
-function F_KEY
-{
-
-}
-
 # =============================== 数据库操作函数 =====================================
+# 连接本地MySQL数据库
 function F_MYSQL_LOCAL
 {
     ${MYSQLCOMMAND} -u${MYSQLUSER} -p${MYSQLPASS} -P${MYSQLPORT} -h${MYSQLHOST:-"127.0.0.1"} -e"${1}"
 }
 
+# 连接远端MySQL数据库
 function F_MYSQL_REMOTE
 {
-    ${MYSQLCOMMAND} -u${MYSQLUSER} -p${MYSQLPASS} -P${MYSQLPORT} -h${MYSQLHOST:-127.0.0.1} -e"${1}"
+    ${MYSQLCOMMAND} -u${MYSQLUSER} -p${MYSQLPASS} -P${MYSQLPORT} -h"${1}" -e"${2}"
 }
