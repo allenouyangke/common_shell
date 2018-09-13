@@ -34,6 +34,20 @@ function BatchCheck
     exec 6>&-
 }
 
+# 单线程查询
+function SingleCheck
+{
+    while read IPADDRESS
+    do
+    {
+        read -u6
+        {
+            curl -s https://ip.cn/index.php?ip=${IPADDRESS}
+        }
+    }
+    done < ${1}
+}
+
 # 单个IP查询
 function SingleCheck
 {

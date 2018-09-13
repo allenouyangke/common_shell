@@ -8,6 +8,8 @@
 # Description  : supervisor安装部署，需要提前安装好pip
 # -------------------------------------------------------------------------------
 
+source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
+
 function SupervisorInstall
 {
     pip install supervisor
