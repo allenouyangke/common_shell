@@ -74,7 +74,7 @@ function OPSCenterUsage
     F_PRINT_WARN "Usage: $0 install|install_doc|test"
 }
 
-[ $@ != 1 ] && OPSCenterUsage
+[ $# != 1 ] && OPSCenterUsage && exit 1
 case ${1} in
     init) OpsInit ;;
     update) GlobalUpdate ;;
