@@ -74,12 +74,9 @@ function OPSCenterUsage
     F_PRINT_WARN "Usage: $0 install|install_doc|test"
 }
 
-OPERATION=${1}
-case ${OPERATION} in
+[ $@ != 1 ] && OPSCenterUsage
+case ${1} in
     init) OpsInit ;;
     update) GlobalUpdate ;;
     *) OPSCenterUsage ;;
 esac
-
-
-
