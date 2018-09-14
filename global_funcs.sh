@@ -185,7 +185,7 @@ function F_BLACK
 }
 
 # 输出绿色字体
-function F_GREENGREEN
+function F_GREEN
 {
     echo -e "\033[32m ${1} \033[0m"
 }
