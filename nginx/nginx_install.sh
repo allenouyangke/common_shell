@@ -45,7 +45,7 @@ function NginxInstall
 function NginxTest
 {
     F_PRINT_SUCCESS "测试配置文件"
-    /user/local/nginx/sbin/nginx -t
+    /usr/local/nginx/sbin/nginx -t
     if [ $? == 0 ];then
         F_PRINT_SUCCESS "测试配置文件成功，正在启动Nginx"
         /usr/local/nginx/sbin/nginx
