@@ -38,6 +38,14 @@ function F_SN
     if [ $? != 0 ];then yum install dmidecode -y;fi
     dmidecode -t 1 | grep 'Serial Number' | awk -F':' '{print $NF}' | xargs
 }
+
+# 输出分割线（Separation line）
+function F_SEP
+{
+    printf -v str "%${1:-100}s" ""
+    echo "${str// /${2:-=}}"
+}
+
 # =============================== 时间输出函数 =====================================
 # 定义当天详细时间输出，显示：2018-07-23 11:12:24
 function F_SDATE

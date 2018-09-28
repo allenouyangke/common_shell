@@ -12,6 +12,8 @@ source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
 function SupervisorInstall
 {
+    which pip
+    F_STATUS_MINI "检测pip是否安装"
     pip install supervisor
     F_STATUS_MINI "实用pip安装supervisor"
     echo_supervisord_conf > /etc/supervisord.conf

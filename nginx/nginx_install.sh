@@ -48,11 +48,14 @@ function NginxTest
     /usr/local/nginx/sbin/nginx -t
     if [ $? == 0 ];then
         F_PRINT_SUCCESS "测试配置文件成功，正在启动Nginx"
-        /usr/local/nginx/sbin/nginx
+        /usr/local/nginx/sbin/nginx && sleep 6
         if [ $? == 0 ];then
             F_PRINT_SUCCESS "Nginx启动成功"
+            sleep 1
             F_PRINT_SUCCESS "相关进程及端口："
+            sleep 1
             ps -ef | grep nginx
+            echo 
             ss -tnl | grep 80
         else
             F_PRINT_ERROR "Nginx启动失败"

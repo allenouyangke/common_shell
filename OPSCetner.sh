@@ -71,7 +71,7 @@ function GlobalUpdate
 
 function OPSCenterUsage
 {
-    F_PRINT_WARN "Usage: $0 install|install_doc|test"
+    F_PRINT_WARN "Usage: $0 init|update"
 }
 
 [ $# != 1 ] && OPSCenterUsage && exit 1
