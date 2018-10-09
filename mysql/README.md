@@ -38,15 +38,6 @@ select distinct(sid) from (select ( id div 100000000000) as sid from charge) res
 # 查看连接数
 show processlist;
 
-    "host": "192.168.2.28",
-    "port": 22,
-
-    "host": "3s.dkys.org",
-    "port": 23484,
-
-    task_log.sql
-
-
 http://wiki.info/pages/viewpage.action?pageId=10423893
 
 csbgm
