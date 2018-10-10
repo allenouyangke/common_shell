@@ -1,12 +1,12 @@
 [TOC]
 
 # 1 度量单位
-1 k  =  1000 bytes
-1 kb =  1024 bytes
-1 m  =  1000000 bytes
-1 mb =  1024 * 1024 bytes
-1 g  =  1000000000 bytes
-1 gb =  1024 * 1024 * 1024 bytes
+1 k  =  1000 bytes  
+1 kb =  1024 bytes  
+1 m  =  1000000 bytes  
+1 mb =  1024 * 1024 bytes  
+1 g  =  1000000000 bytes  
+1 gb =  1024 * 1024 * 1024 bytes  
 
 - redis配置中对单位的大小写不敏感，1GB、1Gb和1gB都是相同的
 - redis只支持bytes，不支持bit单位
