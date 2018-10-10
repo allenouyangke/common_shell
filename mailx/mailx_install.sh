@@ -15,8 +15,8 @@ function MailxConfig
     cat >> /etc/mail.rc <<EOF
 set from="oyktest@163.com"
 set smtp=smtp.163.com
-set smtp-auth-user=oyktest@163.com
-set smtp-auth-password=ke19931023
+set smtp-auth-user=
+set smtp-auth-password=
 set smtp-auth=login
 EOF
     F_STATUS_MINI "导入第三方配置信息"
