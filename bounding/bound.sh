@@ -7,7 +7,7 @@
 # Email        : 619216759@qq.com
 # Description  : 用于做网卡捆绑，实现网卡高可用
 # -------------------------------------------------------------------------------
-#!/bin/bash
+
 day=$(date +%Y%m%d)
 file=/etc/modprobe.d/bonding
 NUM=6 #使用mode模式6 负载均衡
