@@ -12,6 +12,8 @@
 function ZoneList
 {
     cat <<EOF
+Time zone list:
+
     cn        Asia/Shanghai       中国上海          
     vn        Asia/Saigon         越南胡志明市      
     kr        Asia/Seoul          韩国汉城          
@@ -19,6 +21,7 @@ function ZoneList
     de        Europe/Dublin       德国都柏林        
     sg        Asia/Singapore      新马地区   
     us        America/St_Thomas   美国圣托马斯
+
 EOF
     read -p "Please enter the zoneid(eg: cn):" ZONEID
     case ${ZONEID} in
@@ -57,6 +60,8 @@ function Main
     SetTimeZone ${ZONE}
     SetTimeCrond
     echo "Ntpdate successful!"
+    echo
+    echo "Current time:"
     date -R
 }
 
