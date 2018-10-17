@@ -28,7 +28,8 @@ sys,/bin/sh
 ....
 blue,/bin/nosh
 ```
-搜索/etc/passwd有root关键字的所有行
+
+搜索/etc/passwd有root关键字的所有行，相关patter详细使用参见下方参考资料2
 ```
 #awk -F: '/root/' /etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -41,4 +42,5 @@ root:x:0:0:root:/root:/bin/bash
 ```
 
 #### 参考资料
-* [来源资料](https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
+* [1 来源资料](https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
+* [2 awk patter 用法](https://www.gnu.org/software/gawk/manual/html_node/Expression-Patterns.html)
