@@ -9,8 +9,8 @@
 # -------------------------------------------------------------------------------
 
 nginxd=/usr/local/nginx/sbin/nginx
-nginx_config=/usr/local/nginx/conf/ngingx.conf
-nginx_pid=/var/run/nginx.pid
+nginx_config=/usr/local/nginx/conf/nginx.conf
+nginx_pid=/usr/local/nginx/logs/nginx.pid
 RETVAL=0
 prog="nginx"
 # Source function library.
