@@ -12,8 +12,8 @@ source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
 function JDK8SPath
 {
-    echo 'JAVA_HOME=/usr/local/jdk1.8.0_141' >> /etc/profile
-    echo 'JRE_HOME=/usr/local/jdk1.8.0_141/jre' >> /etc/profile
+    echo 'JAVA_HOME=/usr/local/jdk1.8.0_161' >> /etc/profile
+    echo 'JRE_HOME=/usr/local/jdk1.8.0_161/jre' >> /etc/profile
     echo 'PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin' >> /etc/profile
     echo 'CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib' >> /etc/profile
     echo 'export JAVA_HOME JRE_HOME PATH CLASSPATH' >> /etc/profile
@@ -32,7 +32,7 @@ function JDK8Install
     JDK8SPath
 }
 
-function JDK8Test
+function JSK8Test
 {
     java -version
     F_STATUS "JAVA测试成功" "JAVA测试失败，请检查相关配置和变量"

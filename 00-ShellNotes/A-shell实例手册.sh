@@ -1230,7 +1230,7 @@
 				-t  # 是top n的意思，即为返回前面多少条的数据
 				-g  # 后边可以写一个正则匹配模式，大小写不敏感的
 
-				mysqldumpslow  c -t 20 host-slow.log   # 访问次数最多的20个sql语句
+				mysqldumpslow -s c -t 20 host-slow.log   # 访问次数最多的20个sql语句
 				mysqldumpslow -s r -t 20 host-slow.log   # 返回记录集最多的20个sql
 				mysqldumpslow -t 10 -s t -g "left join" host-slow.log    # 按照时间返回前10条里面含有左连接的sql语句
 
@@ -2232,7 +2232,7 @@ END
 			-c     # 是否字符文件
 			-r     # 文件是否可读
 			-d     # 是否一个目录
-			-s     # 文件的长度是否不为零（如果文件存在且至少一个字符则为真）
+			-s     # 文件的长度是否不为零
 			-e     # 文件是否存在
 			-S     # 是否为套接字文件
 			-f     # 是否普通文件
