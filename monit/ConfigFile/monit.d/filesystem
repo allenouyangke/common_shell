@@ -1,2 +1,0 @@
-check filesystem home with path /home
-      if space usage > 90% then exec "/home/script/clean.sh"  #如果home目录大于90则执行清理脚本

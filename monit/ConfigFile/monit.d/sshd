@@ -1,7 +1,0 @@
-check process sshd with pidfile /var/run/sshd.pid
-    start program "/etc/init.d/sshd start"
-    stop program "/etc/init.d/sshd stop"
-    # 这样为被动模式，不会主动去拉起服务
-    # MODE passive
-    if failed port 22 protocol ssh then restart
-    if 5 restarts within 5 cycles then timeout

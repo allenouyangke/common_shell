@@ -1,5 +1,0 @@
-check process nginx with pidfile /usr/local/nginx/logs/nginx.pid
-    group web
-    start program = "/etc/init.d/nginx start"
-    stop program = "/etc/init.d/nginx stop"
-    if failed host 127.0.0.1 port 8080 protocol http then restart
