@@ -1,0 +1,9 @@
+check process zabbix_agent with pidfile /zabbix/zabbix_agentd.pid
+    start program = "/etc/init.d/zabbix-agent start"
+    stop  program = "/etc/init.d/zabbix-agent stop"
+ 
+    if failed host 127.0.0.1 port 10050 then restart        #10050端口连接不进去了，自动重启
+    if children > 200 then restart                          #子线程超过200则重启
+    if cpu > 95% for 5 cycles then restart                  #检查了5次CPU使用率都超过95%，自动重启   
+    if cpu > 90% for 8 cycles then restart                  #检查了8次，8次CPU都大于90%，自动重启
+    if cpu > 90% for 10 times within 15 cycles then restart #检查了15次，15次内出现过10次CPU大于90%，自动重启

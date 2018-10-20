@@ -1,0 +1,34 @@
+# 设置监控进程频率为60秒
+set daemon 60
+# 定义日志存放路径
+set logfile /var/log/monit.log
+
+# 设置发送邮件的服务器及邮箱，若不需要发邮件注释掉即可
+set mailserver smtp.163.com port 25 USERNAME "***test@163.com" PASSWORD "********",
+
+# 制定报警邮件的格式
+set mail-format {
+from: ***test@168
+subject: monit alert -- $EVENT $SERVICE
+message: $EVENT Service $SERVICE
+                Date:   $DATE
+                Action: $ACTION
+                Host:   $HOST
+                Description:    $DESCRIPTION
+    Your failthful employee,
+}
+#设置报警收件人
+set alert 4******6@qq.com
+
+# idfile and mail queue path
+set idfile /var/monit/id
+set eventqueue
+    basedir /var/monit
+
+
+set httpd port 2812 and     # 设置monit进程监听端口，这项必须打开，即使不用，否则启动会报错
+    use address localhost   # only accept connection from localhost 设置这个http服务器的侦听地址
+    allow localhost         # allow localhost to connect to the server and 允许本地访问
+    allow admin:monit       # require user 'admin' with password 'monit' 设置使用用户名admin和密码monit
+
+include /etc/monit.d/*      # 存放关于进程监控定义的目录

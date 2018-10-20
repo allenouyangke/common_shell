@@ -1,0 +1,9 @@
+# tomcat进程默认是不使用pid文件的，pid文件需要显式为tomcat设置，可以打开tomcat目录下的bin目录，打开catalina.sh文件，在开头（非首行）加入:CATALINA_PID=/var/run/catalina.pid
+check process Tomcat with pidfile /var/run/tomcat.pid
+    start program = "/usr/local/apache-tomcat-7.0.70/bin/startup.sh" with timeout 60 seconds
+    stop program  = "/usr/local/apache-tomcat-7.0.70/bin/shutdown.sh"
+    if failed port 8080 for 5 cycles then restart
+    if 3 restarts within 5 cycles then timeout
+
+# 需要在tomcat/bin/shutdown.sh和tomcat/bin/startup.sh两个启动脚本中 source /etc/profile，加载jdk的环境变量
+# 个人初步猜想，使用yum安装jdk可以免去在启停脚本加载source /etc/profile的步骤
