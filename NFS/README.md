@@ -45,3 +45,11 @@ chkconfig nfs on
 
 - 查看已挂载共享
 `mount`
+
+- 解除挂载
+```shell
+umount /mnt/store
+
+# 如果出现卸载不掉的情况加上 -l 参数
+umount -l /mnt/store
+```

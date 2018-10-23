@@ -49,8 +49,7 @@ scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql --datadir=/expo
 
 chmod 755 /etc/init.d/mysqld
 chkconfig mysql on
-echo 'export PATH=/usr/local/mysql/bin:$PATH' >> /etc/profile
+echo 'export PATH=/usr/local/mysql/bin:$PATH' >> /root/.bashrc
 echo "/usr/local/mysql/lib" >> /etc/ld.so.conf
-source /etc/profile
+source /root/.bashrc
 ldconfig
-/etc/init.d/mysqld restart
