@@ -1,0 +1,4 @@
+check process memcached with pidfile /tmp/linuxjcq_memcached.pid  
+    start program = "/etc/rc.d/init.d/memcached start" 
+    stop program = "/etc/rc.d/init.d/memcached stop" 
+    if failed host 127.0.0.1 port 11211 protocol memcache then restart 
