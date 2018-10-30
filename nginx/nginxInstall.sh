@@ -13,6 +13,11 @@ source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 DOWNLOADPATH="/usr/local/src/"
 INSTALLPATH="/usr/local/nginx"
 
+function NginxYumInstall
+{
+    yum install nginx -y
+}
+
 function NginxVersions
 {
     NGINXVERSIONS=`curl -s "http://nginx.org/en/download.html" | sed 's/ /\n/g' | grep -E "tar\.gz" | grep -v "asc" | awk -F'>' '{print $2}' | tr -d '</a'`
@@ -20,7 +25,7 @@ function NginxVersions
     for line in ${NGINXVERSIONS[@]}; do F_GREEN ${line}; done
 }
 
-function NginxInstall
+function NginxSourceInstall
 {
     NginxVersions
     read -p "请选择需要安装的Nginx版本 : " NGINXVER
@@ -74,7 +79,7 @@ function Usage
 
 case $1 in
     versions) NginxVersions ;;
-    install) NginxInstall ;;
+    install) NginxSourceInstall ;;
     test) NginxTest;;
     *) Usage ;;
 esac

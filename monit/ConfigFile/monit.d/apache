@@ -3,3 +3,12 @@ check process apache with pidfile /var/run/httpd/httpd.pid
     start program = "/etc/init.d/httpd start"
     stop program = "/etc/init.d/httpd stop"
     if failed host 127.0.0.1 port 80 protocol http then restart
+
+check process apache with pidfile /var/run/httpd.pid
+       start program = "/etc/init.d/httpd start"
+       stop program  = "/etc/init.d/httpd stop"
+       if cpu > 40% for 2 cycles then alert                         # 如果2次轮询，进程CPU都大于40%，则告警
+       if total cpu > 60% for 2 cycles then alert                   # 如果2次轮询，系统CPU都大于60%，则告警
+       if total cpu > 80% for 5 cycles then restart                 # 如果5次轮询，系统CPU都大于80%，则重启（先stop，在start）
+       if mem > 100 MB for 5 cycles then stop                       # 如果5次轮询，内存mem都大于100MB，则stop
+       if loadavg(5min) greater than 10.0 for 8 cycles then stop    # 如果8次轮询，5分钟平均负载都大于10，则stop

@@ -1,0 +1,71 @@
+# Base
+check process php-fpm with pidfile /var/run/php-fpm/php-fpm.pid
+    start program = "/etc/init.d/php-fpm start" 
+    stop program = "/etc/init.d/php-fpm stop" 
+    if cpu > 50% for 2 cycles then alert  
+    if cpu > 70% for 5 cycles then restart  
+    if failed host 127.0.0.1 port 9000 then restart  
+    if 5 restarts within 5 cycles then timeout 
+
+# 示例1
+## On ngnix.conf
+location /ping {
+    access_log     off;
+    allow          127.0.0.1;
+    deny           all;
+    root           html;
+    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  /usr/share/nginx/html$fastcgi_script_name;
+    include        fastcgi_params;
+}
+
+## On monit.d
+check process php-fpm.www with pidfile /var/run/php-fpm/php-fpm.pid
+  group php-fpm
+  start program = "/etc/init.d/php-fpm start"
+  stop program  = "/etc/init.d/php-fpm stop"
+  if failed host localhost port 80 protocol http
+     and request '/ping'
+     with timeout 20 seconds for 5 cycles
+     then restart
+  ## If the restarts attempts fail then alert.
+  if 3 restarts within 5 cycles then timeout
+  depends on php-fpm_bin
+  depends on php-fpm_init
+  depends on nginx
+
+# 示例2
+## On /etc/php-fpm.conf
+listen = /var/run/php5-fpm.sock
+; listen.owner = www-data
+; listen.group = www-data
+; listen.mode = 0660
+
+# On monit.d
+check process php-fpm with pidfile /var/run/php-fpm/php-fpm.pid
+  group phpcgi # phpcgi group
+  start program = "/etc/init.d/php-fpm start"
+  stop program  = "/etc/init.d/php-fpm stop"
+  ## Test the UNIX socket. Restart if down.
+  if failed unixsocket /var/run/php-fpm.sock then restart
+  ## If the restarts attempts fail then alert.
+  if 3 restarts within 5 cycles then timeout
+  depends on php-fpm_bin
+  depends on php-fpm_init
+
+## Test the php-fpm binary.
+check file php-fpm_bin with path /usr/sbin/php-fpm
+   group phpcgi
+   if failed checksum then unmonitor
+   if failed permission 755 then unmonitor
+   if failed uid root then unmonitor
+   if failed gid root then unmonitor
+
+## Test the init scripts.
+check file php-fpm_init with path /etc/init.d/php-fpm
+   group phpcgi
+   if failed checksum then unmonitor
+   if failed permission 755 then unmonitor
+   if failed uid root then unmonitor
+   if failed gid root then unmonitor

@@ -47,7 +47,7 @@ set httpd port 2812 and    # 设置monit进程监听端口，这项必须打开�
 include /etc/monit.d/*    # 存放关于进程监控定义的目录
 ```
 
-## 2 常用操作
+# 2 常用操作
 - 检查语法
 ```shell
 monit -t
@@ -80,12 +80,17 @@ validate            # Check all services and start if not running 检查所有�
 procmatch <pattern> # Test process matching pattern
 ```
 
-## 3 应用场景
+# 3 应用场景
 - 通过pid文件管理各种服务进程的启停操作
 - 通过监控各方面的指标自动拉起、重启、关闭相关的服务器进程
 - 监控相关进程并设定监控值，向相关人员进行报警
 
 
-## 4 注意事项
+# 4 注意事项
 - 配置文件中的命令需要使用绝对路径
 - 启停进程无任何输出，因为monit是异步执行的
+
+# 5 参考资料
+- [monit官方文档](https://mmonit.com/monit/documentation/monit.html#File)
+- [monit监控配置](https://my.oschina.net/u/615494/blog/283910)
+- [monit监控配置](https://www.jianshu.com/p/248d6456e83f)

@@ -10,7 +10,7 @@
 
 function MonitYumInstall
 {
-    yum install monit_install -y
+    yum install monit -y
 }
 
 function MonitSourceInstall
