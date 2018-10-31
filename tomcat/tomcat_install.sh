@@ -14,9 +14,9 @@ TOMCATNAME="tomcat7"
 
 function TomcatInstall
 {
-    TOMCATVERSION="apache-tomcat-7.0.82.tar.gz"
+    TOMCATVERSION="apache-tomcat-7.0.91.tar.gz"
     
-    wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.82/bin/${TOMCATVERSION} -P /usr/local/src/
+    wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.91/bin/${TOMCATVERSION} -P /usr/local/src/
     F_STATUS_MINI "下载Tomcat7安装包"
     tar zxvf /usr/local/src/${TOMCATVERSION} -C /usr/local/
     F_STATUS_MINI "解压Tomcat7"
