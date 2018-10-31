@@ -292,3 +292,8 @@ spawn-fcgi -a 127.0.0.1 -p 9007 -P /var/run/smokeping-fastcgi.pid -u nginx -f /o
 
 [CentOS6安装smokeping](https://www.cnblogs.com/binleelinux/p/5872067.html)
 
+[网络质量监控smokeping部署](https://my.oschina.net/lxcong/blog/150617)
+
+[smokeping的启动脚本](https://my.oschina.net/lxcong/blog/150804)
+
+[一键脚本：SmikePing一键安装/管理脚本](https://www.sabia.cc/smokeping-onekey.html)

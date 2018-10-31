@@ -26,11 +26,15 @@ function LocalToRemote
     git status
     git add .
     git commit -m "$1"
+    git push origin ${BRANCHNAME}
 }
 
 function Main
 {
-
+    case ${1} in
+        gitpull) RemoteToLocal;;
+        gitpush) LocalToRemote;; 
+    esac
 }
 
 Main
