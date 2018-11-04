@@ -50,3 +50,5 @@ i am line 4
 
 i am line 5
 ```
+
+* [参考资料](https://stackoverflow.com/questions/22697688/how-to-cat-eof-a-file-containing-code/22698106)
