@@ -263,21 +263,21 @@ function F_BWHITE
 # 从远端拉数据到本地
 function F_SCP_PULL
 {
-    SSH_PORT=${1}
-    REMOTE_IP=${2}
-    SRC_PATH=${3}
-    DEST_PATH=${4}
-    scp -r -P${SSH_PORT} ${SRC_PATH} root@${REMOTE_IP}:${DEST_PATH}
+    local SSH_PORT=${1}
+    local REMOTE_IP=${2}
+    local SRC_PATH=${3}
+    local DEST_PATH=${4}
+    scp -r -P${SSH_PORT} root@${REMOTE_IP}:${SRC_PATH} ${DEST_PATH}
 }
 
 # 从本地推文件到远端
 function F_SCP_PUSH
 {
-    SSH_PORT=${1}
-    REMOTE_IP=${2}
-    SRC_PATH=${3}
-    DEST_PATH=${4}
-    scp -r -P${SSH_PORT} root@${REMOTE_IP}:${DEST_PATH} ${SRC_PATH}
+    local SSH_PORT=${1}
+    local REMOTE_IP=${2}
+    local SRC_PATH=${3}
+    local DEST_PATH=${4}
+    scp -r -P${SSH_PORT} ${SRC_PATH} root@${REMOTE_IP}:${DEST_PATH} 
 }
 
 # 关闭selinux

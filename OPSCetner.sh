@@ -69,14 +69,26 @@ function GlobalUpdate
     F_STATUS "文件global_funcs.sh同步成功" "文件global_funcs.sh同步失败"
 }
 
-function OPSCenterUsage
+function CommonList
 {
-    F_PRINT_WARN "Usage: $0 init|update"
+    ls $PWD | grep "^[^0-9]" | grep -Ev "\.sh$|\.md$"
 }
 
-[ $# != 1 ] && OPSCenterUsage && exit 1
-case ${1} in
-    init) OpsInit ;;
-    update) GlobalUpdate ;;
-    *) OPSCenterUsage ;;
-esac
+function OPSCenterUsage
+{
+    F_PRINT_WARN "Usage: $0 init|update|list"
+}
+
+function Main
+{
+    [ $# != 1 ] && OPSCenterUsage && exit 1
+    case ${1} in
+        init) OpsInit ;;
+        update) GlobalUpdate ;;
+        list) CommonList;;
+        *) OPSCenterUsage ;;
+    esac
+}
+
+
+
