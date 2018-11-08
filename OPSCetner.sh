@@ -90,5 +90,4 @@ function Main
     esac
 }
 
-
-
+Main ${1}

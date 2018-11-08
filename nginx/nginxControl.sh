@@ -9,7 +9,7 @@
 # -------------------------------------------------------------------------------
 
 nginxd=/usr/local/nginx/sbin/nginx
-nginx_config=/usr/local/nginx/conf/ngingx.conf
+nginx_config=/usr/local/nginx/conf/nginx.conf
 nginx_pid=/var/run/nginx.pid
 RETVAL=0
 prog="nginx"

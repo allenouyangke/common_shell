@@ -112,7 +112,7 @@ function Processor
     yum -y update
 }
 
-[ $# == 2 ] && Usage &&exit 65
+[ $# != 2 ] && Usage &&exit 65
 CheckSYS
 BackupRepo
 Processor ${1} ${2}
