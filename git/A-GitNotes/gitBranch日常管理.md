@@ -31,7 +31,7 @@ git commit -m "@@@"
 
 # 将remote master 的更新下载到本地
 git checkout master
-git pull origin masterr 
+git pull origin master
 
 # 将 local  开发分支merge到 local master
 git merge dev_xxx

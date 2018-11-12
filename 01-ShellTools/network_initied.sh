@@ -21,5 +21,5 @@ else
 fi
 
 #输入任意键进行重启
-pause
+read
 shutdown -r now

@@ -260,6 +260,27 @@ function F_BWHITE
 
 # =============================== 公共服务函数 =====================================
 
+# 判断是否威ROOT用户
+# whoami（显示当前用户的用户名）
+function F_ROOT_USER
+{
+    if [ `whoami` == "root" ];then
+        echo "Root用户"
+    else
+        echo "非Root用户"
+    fi
+}
+
+# id -u（显示当前用户的uid）
+function F_ROOT_ID
+{
+    if [ `id -u` -eq 0 ];then
+        echo "Root用户"
+    else
+        echo "非Root用户"
+    fi
+}
+
 # 从远端拉数据到本地
 function F_SCP_PULL
 {
