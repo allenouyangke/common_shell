@@ -10,7 +10,7 @@
 
 source /ops/com/global_vars.sh && source /ops/com/global_funcs.sh
 
-function JDK8SPath
+function JDK8Config
 {
     echo 'JAVA_HOME=/usr/local/jdk1.8.0_161' >> /etc/profile
     echo 'JRE_HOME=/usr/local/jdk1.8.0_161/jre' >> /etc/profile
@@ -29,22 +29,29 @@ function JDK8Install
     F_STATUS_MINI "下载JSK8源码包"
     cd /usr/local/src/;tar zxvf jdk-8u141-linux-x64.tar.gz -C /usr/local/
     F_STATUS_MINI "解压JSK8源码包"
-    JDK8SPath
+    JDK8Config
 }
 
-function JSK8Test
+function JDK8Test
 {
     java -version
     F_STATUS "JAVA测试成功" "JAVA测试失败，请检查相关配置和变量"
 }
 
-function Usage
+function JDKUsage
 {
     F_RED "Usage : Please select the operation (install|test)"
 }
 
-case $1 in
-    install) JDK8Install ;;
-    test) JDK8Test;;
-    *) Usage ;;
-esac
+function JDKMain
+{
+    case $1 in
+        install) JDK8Install ;;
+        test) JDK8Test;;
+        *) Usage ;;
+    esac
+}
+
+
+JSKMain ${1}
+
