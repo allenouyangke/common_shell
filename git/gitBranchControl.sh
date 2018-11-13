@@ -8,33 +8,74 @@
 # Description  :
 # -------------------------------------------------------------------------------
 
+REPO_PATH="/e/GithubRepositories/MyRepositories"
 
-
-BRANCHNAME=${1}
-
-function RemoteToLocal
+function F_RED
 {
+    echo -e "\033[31m ${1} \033[0m"
+}
+
+function F_GREEN
+{
+    echo -e "\033[32m ${1} \033[0m"
+}
+
+function RepoList
+{
+    ls -F ${REPO_PATH} | grep '/$' |tr -d /
+}
+
+function GitPull
+{
+    if [ $# != 2 ];then F_RED "Usage: Please enter [pull|push|list] <[RepoName]> <[BranchName]>";exit 65;fi
+    cd ${REPO_PATH}/${1}
+    F_GREEN "进入common_shell目录"
+    sleep 1
     git checkout master
+    F_GREEN "切换到master分支"
+    sleep 1
     git pull origin master
-    git checkout ${BRANCHNAME}
+    F_GREEN "从origin master更新local master"
+    sleep 1
+
+    git checkout ${2}
+    F_GREEN "切换到win_shell分支"
+    sleep 1
     git merge master
+    F_GREEN "将master分支合并更新到win_shell分支"
+    sleep 1
+    git push origin ${2}
+    F_GREEN "更新origin win_shell分支"
+    sleep 1
 }
 
-function LocalToRemote
+function GitPush
 {
-    git checkout ${BRANCHNAME}
-    git status
-    git add .
-    git commit -m "$1"
-    git push origin ${BRANCHNAME}
+    if [ $# != 2 ];then F_RED "Usage: Please enter [pull|push|list] <[RepoName]> <[BranchName]>";exit 65;fi
+    cd ${REPO_PATH}/${1}
+    F_GREEN "进入common_shell目录"
+    sleep 1
+    git checkout ${2}
+    F_GREEN "切换到win_shell分支"
+    sleep 1
+    git push origin ${2}
+    F_GREEN "更新origin win_shell分支"
+    sleep 1
+    git checkout master
+    F_GREEN "切换到master分支"
+    sleep 1
+    git merge ${2}
+    F_GREEN "将win_shell分支合并更新到master分支"
+    sleep 1
+    git push origin master
+    F_GREEN "更新origin master分支"
 }
 
-function Main
-{
-    case ${1} in
-        gitpull) RemoteToLocal;;
-        gitpush) LocalToRemote;; 
-    esac
-}
+case ${1} in
+    pull) GitPull ${2} ${3} ;;
+    push) GitPush ${2} ${3} ;;
+    list) RepoList ;;
+    *) F_RED "Usage: Please enter [pull|push] [RepoName] [BranchName]" && exit 65
+esac
 
-Main
+exit 0

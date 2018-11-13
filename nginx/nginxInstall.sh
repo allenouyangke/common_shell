@@ -33,7 +33,7 @@ function NginxSourceInstall
     F_STATUS "下载${NGINXVER}成功" "下载${NGINXVER}失败"
     cd ${DOWNLOADPATH};tar zxvf ${NGINXVER}.tar.gz
     F_STATUS "解压${NGINXVER}成功" "解压${NGINXVER}失败"
-    yum -y install pcre-devel
+    yum -y install pcre-devel openssl openssl-devel
     F_STATUS_MINI "安装依赖包"
     cd ${NGINXVER};sed -i -e 's/1.6.2//g' -e 's/nginx\//WS/g' -e 's/"NGINX"/"WS"/g' src/core/nginx.h
     F_STATUS "屏蔽${NGINXVER}版本号成功" "屏蔽${NGINXVER}版本号失败"
