@@ -5,7 +5,7 @@
 # Date         : 2018/10/30
 # Author       : AllenKe
 # Email        : allenouyangke@icloud.com
-# Description  :
+# Description  : Git上下班操作脚本pull/push
 # -------------------------------------------------------------------------------
 
 REPO_PATH="/e/GithubRepositories/MyRepositories"
@@ -18,6 +18,13 @@ function F_RED
 function F_GREEN
 {
     echo -e "\033[32m ${1} \033[0m"
+}
+
+function NextStep
+{
+    if [ "${1}" == "n" -o "${1}" == "N" ];then 
+        break 
+    fi
 }
 
 function RepoList
@@ -55,27 +62,39 @@ function GitPush
     cd ${REPO_PATH}/${1}
     F_GREEN "进入common_shell目录"
     sleep 1
-    git checkout ${2}
-    F_GREEN "切换到win_shell分支"
-    sleep 1
-    git push origin ${2}
-    F_GREEN "更新origin win_shell分支"
-    sleep 1
     git checkout master
     F_GREEN "切换到master分支"
+    sleep 1
+    git pull origin master
+    F_GREEN "更新local master分支"
     sleep 1
     git merge ${2}
     F_GREEN "将win_shell分支合并更新到master分支"
     sleep 1
     git push origin master
     F_GREEN "更新origin master分支"
+    git checkout ${2}
+    F_GREEN "切换到win_shell分支"
+    sleep 1
+    git push origin ${2}
+    F_GREEN "更新origin win_shell分支"
+    sleep 1
 }
 
+
 case ${1} in
-    pull) GitPull ${2} ${3} ;;
-    push) GitPush ${2} ${3} ;;
-    list) RepoList ;;
-    *) F_RED "Usage: Please enter [pull|push] [RepoName] [BranchName]" && exit 65
+    pull) 
+        GitPull ${2} ${3} ;;
+    push)
+        F_RED "Warning:Execute push to determine if the change commit has been made."
+        echo -n "是否继续添加/删除: [y/n]:" 
+        read OPTION
+        NextStep ${OPTION} 
+        GitPush ${2} ${3} ;;
+    list) 
+        RepoList ;;
+    *) 
+        F_RED "Usage: Please enter [pull|push] [RepoName] [BranchName]" && exit 65 ;;
 esac
 
 exit 0
