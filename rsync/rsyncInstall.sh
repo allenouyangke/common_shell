@@ -43,8 +43,8 @@ exclude = test1/ test2/
 hosts allow = *
 EOF
 
-    # 导入安全文件信息
-    cat > /etc/rsyncd/rsyncd.secrets << EOF
+# 导入安全文件信息
+cat > /etc/rsyncd/rsyncd.secrets << EOF
 test:test@168
 EOF
 }
