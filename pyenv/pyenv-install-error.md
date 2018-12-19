@@ -17,7 +17,7 @@ $ source ~/.bash_profile
 ```
 CFLAGS="-I$(brew --prefix openssl)/include" \
 LDFLAGS="-L$(brew --prefix openssl)/lib" \
-pyenv install -v 3.4.3
+pyenv install -v 3.5.2
 ```
 [参考-github 对应wiki有说明解决方案](https://github.com/pyenv/pyenv/wiki/Common-build-problems)
 
