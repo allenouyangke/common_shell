@@ -1,0 +1,1 @@
+nohup ./start.sh >output 2>&1 &  指定输出到output文件
