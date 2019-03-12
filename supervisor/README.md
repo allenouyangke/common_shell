@@ -21,7 +21,7 @@ echo_supervisord_conf > /etc/supervisord.conf
 [主配置文件](./ConfigFile/supervisord.conf)
 
 - 管理监控项配置文件  
-[基础配置模块](./ConfigFile/conf.d/model.conf)
+[基础配置模块](./ConfigFile/conf.d/model.conf)  
 [nginx配置文件](./ConfigFile/conf.d/nginx.conf)  
 [mysql配置文件](./ConfigFile/conf.d/mysql.conf)
 
@@ -73,3 +73,4 @@ update                   # 重启配置文件修改过的程序，配置没有�
 # 4 参考资料
 - [官方文档](http://supervisord.org/)
 - [supervisor 管理进程简明教程](https://www.jianshu.com/p/bf2b3f4dec73)
+- [Supervisor的使用](https://blog.csdn.net/huwh_/article/details/80497790)

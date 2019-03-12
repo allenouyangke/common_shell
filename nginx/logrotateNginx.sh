@@ -8,7 +8,7 @@
 # Description  :
 # -------------------------------------------------------------------------------
 
-# vi /etc/logrotate.d/nginx
+$ vi /etc/logrotate.d/nginx
 
 /usr/local/nginx/logs/www.willko.cn.log /usr/local/nginx/logs/nginx_error.log {
 notifempty
