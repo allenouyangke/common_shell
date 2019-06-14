@@ -1,0 +1,8 @@
+- host: "10.17.2.189"
+  - hostname: "kvm-01"
+  - user: "root"
+  - pass: "test@168"
+- host: "10.17.2.188"
+  - hostname: "kvm-02"
+  - user: "root"
+  - pass: "test@168"

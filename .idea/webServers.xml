@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="63232d1d-7e39-4f79-8171-e97c8a0cae17" name="common_shell(root@10.17.2.189:22)" url="http:///">
+        <fileTransfer host="10.17.2.189" port="22" accessType="SFTP">
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
